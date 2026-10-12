@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing System</title>
+
+    <link rel="stylesheet" href="billstyle.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Billing System</h1>
+
+        <!-- Products -->
+        <div class="products">
+
+            <div class="product">
+                <h3>Pen</h3>
+                <p>₹10</p>
+                <button onclick="addProduct('Pen')">Add</button>
+            </div>
+
+            <div class="product">
+                <h3>Notebook</h3>
+                <p>₹50</p>
+                <button onclick="addProduct('Notebook')">Add</button>
+            </div>
+
+            <div class="product">
+                <h3>Pencil</h3>
+                <p>₹5</p>
+                <button onclick="addProduct('Pencil')">Add</button>
+            </div>
+
+            <div class="product">
+                <h3>Bag</h3>
+                <p>₹500</p>
+                <button onclick="addProduct('Bag')">Add</button>
+            </div>
+
+        </div>
+
+
+        <!-- Bill -->
+        <div class="bill">
+
+            <h2>Bill</h2>
+
+            <div id="billItems"></div>
+
+            <h2>Total: ₹<span id="total">0</span></h2>
+
+        </div>
+
+    </div>
+
+    <script src="billscript.js"></script>
+
+</body>
+</html>
