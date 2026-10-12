@@ -1,0 +1,38 @@
+#name{
+    color: red;
+    text-align: left;
+}
+
+body{
+    background-color: black;
+}
+
+h2{
+    text-align: right;
+}
+
+#b{
+    padding: 5px;
+    background-color: red;
+    color: white;
+    border-radius: 8px;
+    border-color: black;
+}
+
+div{
+    color: white;
+    text-align: center;
+}
+
+button{
+    text-align: right;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
