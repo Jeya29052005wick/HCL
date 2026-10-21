@@ -1,0 +1,15 @@
+D:\Personal\Jeyachandran\HCL\Training\LINQ\bin\Debug\net10.0\LinqMasteryPractice.exe
+D:\Personal\Jeyachandran\HCL\Training\LINQ\bin\Debug\net10.0\LinqMasteryPractice.deps.json
+D:\Personal\Jeyachandran\HCL\Training\LINQ\bin\Debug\net10.0\LinqMasteryPractice.runtimeconfig.json
+D:\Personal\Jeyachandran\HCL\Training\LINQ\bin\Debug\net10.0\LinqMasteryPractice.dll
+D:\Personal\Jeyachandran\HCL\Training\LINQ\bin\Debug\net10.0\LinqMasteryPractice.pdb
+D:\Personal\Jeyachandran\HCL\Training\LINQ\obj\Debug\net10.0\LinqMasteryPractice.GeneratedMSBuildEditorConfig.editorconfig
+D:\Personal\Jeyachandran\HCL\Training\LINQ\obj\Debug\net10.0\LinqMasteryPractice.AssemblyInfoInputs.cache
+D:\Personal\Jeyachandran\HCL\Training\LINQ\obj\Debug\net10.0\LinqMasteryPractice.AssemblyInfo.cs
+D:\Personal\Jeyachandran\HCL\Training\LINQ\obj\Debug\net10.0\LinqMasteryPractice.csproj.CoreCompileInputs.cache
+D:\Personal\Jeyachandran\HCL\Training\LINQ\obj\Debug\net10.0\LinqMasteryPractice.dll
+D:\Personal\Jeyachandran\HCL\Training\LINQ\obj\Debug\net10.0\refint\LinqMasteryPractice.dll
+D:\Personal\Jeyachandran\HCL\Training\LINQ\obj\Debug\net10.0\LinqMasteryPractice.pdb
+D:\Personal\Jeyachandran\HCL\Training\LINQ\obj\Debug\net10.0\LinqMasteryPractice.genruntimeconfig.cache
+D:\Personal\Jeyachandran\HCL\Training\LINQ\obj\Debug\net10.0\ref\LinqMasteryPractice.dll
+D:\Personal\Jeyachandran\HCL\Training\LINQ\obj\Debug\net10.0\LinqMast.0F8E1491.Up2Date

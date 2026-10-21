@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 12\\Filehandle\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7E758225-84AD-9DC8-078F-4EFE555E531E}|Filehandle\\Filehandle.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\day 12\\filehandle\\filehandle\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E758225-84AD-9DC8-078F-4EFE555E531E}|Filehandle\\Filehandle.csproj|solutionrelative:filehandle\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E758225-84AD-9DC8-078F-4EFE555E531E}|Filehandle\\Filehandle.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\day 12\\filehandle\\filehandle\\jsonpractice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E758225-84AD-9DC8-078F-4EFE555E531E}|Filehandle\\Filehandle.csproj|solutionrelative:filehandle\\jsonpractice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E758225-84AD-9DC8-078F-4EFE555E531E}|Filehandle\\Filehandle.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\day 12\\filehandle\\filehandle\\filehand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E758225-84AD-9DC8-078F-4EFE555E531E}|Filehandle\\Filehandle.csproj|solutionrelative:filehandle\\filehand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Filehand.cs",
+              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 12\\Filehandle\\Filehandle\\Filehand.cs",
+              "RelativeDocumentMoniker": "Filehandle\\Filehand.cs",
+              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 12\\Filehandle\\Filehandle\\Filehand.cs",
+              "RelativeToolTip": "Filehandle\\Filehand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-21T03:31:31.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "JsonPractice.cs",
+              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 12\\Filehandle\\Filehandle\\JsonPractice.cs",
+              "RelativeDocumentMoniker": "Filehandle\\JsonPractice.cs",
+              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 12\\Filehandle\\Filehandle\\JsonPractice.cs",
+              "RelativeToolTip": "Filehandle\\JsonPractice.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAqwCIAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-17T06:51:17.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 12\\Filehandle\\Filehandle\\Program.cs",
+              "RelativeDocumentMoniker": "Filehandle\\Program.cs",
+              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 12\\Filehandle\\Filehandle\\Program.cs",
+              "RelativeToolTip": "Filehandle\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-17T06:27:45.719Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

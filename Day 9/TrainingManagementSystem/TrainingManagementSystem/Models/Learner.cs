@@ -8,11 +8,7 @@ public class Learner
     public string ContactNumber { get; set; }
     public string Email { get; set; }
 
-    public Learner(
-        string learnerId,
-        string name,
-        string contactNumber,
-        string email)
+    public Learner(string learnerId,string name,string contactNumber,string email)
     {
         LearnerId = learnerId;
         Name = name;

@@ -1,0 +1,16 @@
+D:\Personal\Jeyachandran\HCL\Projects\Day 12\Filehandle\Filehandle\bin\Debug\net10.0\Filehandle.exe
+D:\Personal\Jeyachandran\HCL\Projects\Day 12\Filehandle\Filehandle\bin\Debug\net10.0\Filehandle.deps.json
+D:\Personal\Jeyachandran\HCL\Projects\Day 12\Filehandle\Filehandle\bin\Debug\net10.0\Filehandle.runtimeconfig.json
+D:\Personal\Jeyachandran\HCL\Projects\Day 12\Filehandle\Filehandle\bin\Debug\net10.0\Filehandle.dll
+D:\Personal\Jeyachandran\HCL\Projects\Day 12\Filehandle\Filehandle\bin\Debug\net10.0\Filehandle.pdb
+D:\Personal\Jeyachandran\HCL\Projects\Day 12\Filehandle\Filehandle\obj\Debug\net10.0\Filehandle.GeneratedMSBuildEditorConfig.editorconfig
+D:\Personal\Jeyachandran\HCL\Projects\Day 12\Filehandle\Filehandle\obj\Debug\net10.0\Filehandle.AssemblyInfoInputs.cache
+D:\Personal\Jeyachandran\HCL\Projects\Day 12\Filehandle\Filehandle\obj\Debug\net10.0\Filehandle.AssemblyInfo.cs
+D:\Personal\Jeyachandran\HCL\Projects\Day 12\Filehandle\Filehandle\obj\Debug\net10.0\Filehandle.csproj.CoreCompileInputs.cache
+D:\Personal\Jeyachandran\HCL\Projects\Day 12\Filehandle\Filehandle\obj\Debug\net10.0\Filehandle.sourcelink.json
+D:\Personal\Jeyachandran\HCL\Projects\Day 12\Filehandle\Filehandle\obj\Debug\net10.0\Filehandle.dll
+D:\Personal\Jeyachandran\HCL\Projects\Day 12\Filehandle\Filehandle\obj\Debug\net10.0\refint\Filehandle.dll
+D:\Personal\Jeyachandran\HCL\Projects\Day 12\Filehandle\Filehandle\obj\Debug\net10.0\Filehandle.pdb
+D:\Personal\Jeyachandran\HCL\Projects\Day 12\Filehandle\Filehandle\obj\Debug\net10.0\Filehandle.genruntimeconfig.cache
+D:\Personal\Jeyachandran\HCL\Projects\Day 12\Filehandle\Filehandle\obj\Debug\net10.0\ref\Filehandle.dll
+D:\Personal\Jeyachandran\HCL\Projects\Day 12\Filehandle\Filehandle\obj\Debug\net10.0\Filehandle.csproj.Up2Date
