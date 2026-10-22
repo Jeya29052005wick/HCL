@@ -1,0 +1,6 @@
+wwwroot\app.js
+wwwroot\index.html
+wwwroot\style.css
+D:\Personal\Jeyachandran\HCL\Projects\Day 14\TrainingManagementApi\TrainingManagementApi\wwwroot\app.js
+D:\Personal\Jeyachandran\HCL\Projects\Day 14\TrainingManagementApi\TrainingManagementApi\wwwroot\index.html
+D:\Personal\Jeyachandran\HCL\Projects\Day 14\TrainingManagementApi\TrainingManagementApi\wwwroot\style.css

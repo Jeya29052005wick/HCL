@@ -1,38 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\StudentManagement\\",
+  "WorkspaceRootPath": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 7\\StudentManagement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\studentmanagement\\studentmanagement.api\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|solutionrelative:studentmanagement.api\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\studentmanagement\\studentmanagement.api\\studentmanagement.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|solutionrelative:studentmanagement.api\\studentmanagement.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\studentmanagement\\studentmanagement.api\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\day 7\\studentmanagement\\studentmanagement.api\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|solutionrelative:studentmanagement.api\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\studentmanagement\\studentmanagement.api\\migrations\\20261012160045_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|solutionrelative:studentmanagement.api\\migrations\\20261012160045_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\day 7\\studentmanagement\\studentmanagement.api\\studentmanagement.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|solutionrelative:studentmanagement.api\\studentmanagement.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\studentmanagement\\studentmanagement.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\day 7\\studentmanagement\\studentmanagement.api\\studentmanagement.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|solutionrelative:studentmanagement.api\\studentmanagement.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\day 7\\studentmanagement\\studentmanagement.api\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|solutionrelative:studentmanagement.api\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\day 7\\studentmanagement\\studentmanagement.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|solutionrelative:studentmanagement.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\studentmanagement\\studentmanagement.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\day 7\\studentmanagement\\studentmanagement.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|solutionrelative:studentmanagement.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\studentmanagement\\studentmanagement.api\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\day 7\\studentmanagement\\studentmanagement.api\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|solutionrelative:studentmanagement.api\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\studentmanagement\\studentmanagement.api\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\day 7\\studentmanagement\\studentmanagement.api\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|solutionrelative:studentmanagement.api\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|d:\\personal\\jeyachandran\\hcl\\projects\\day 7\\studentmanagement\\studentmanagement.api\\migrations\\20261012160045_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71EA3078-3DFA-F992-B91A-AEB7E773A79F}|StudentManagement.Api\\StudentManagement.Api.csproj|solutionrelative:studentmanagement.api\\migrations\\20261012160045_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,53 +46,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "README.md",
-              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\StudentManagement\\StudentManagement.Api\\README.md",
-              "RelativeDocumentMoniker": "StudentManagement.Api\\README.md",
-              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\StudentManagement\\StudentManagement.Api\\README.md",
-              "RelativeToolTip": "StudentManagement.Api\\README.md",
-              "ViewState": "AgIAAOAAAAAAAAAAAAAAAMQAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-10-12T17:14:39.18Z",
+              "DocumentIndex": 2,
+              "Title": "StudentManagement.Api.http",
+              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 7\\StudentManagement\\StudentManagement.Api\\StudentManagement.Api.http",
+              "RelativeDocumentMoniker": "StudentManagement.Api\\StudentManagement.Api.http",
+              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 7\\StudentManagement\\StudentManagement.Api\\StudentManagement.Api.http",
+              "RelativeToolTip": "StudentManagement.Api\\StudentManagement.Api.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2026-10-22T14:54:11.886Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "StudentsController.cs",
-              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\StudentManagement\\StudentManagement.Api\\Controllers\\StudentsController.cs",
+              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 7\\StudentManagement\\StudentManagement.Api\\Controllers\\StudentsController.cs",
               "RelativeDocumentMoniker": "StudentManagement.Api\\Controllers\\StudentsController.cs",
-              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\StudentManagement\\StudentManagement.Api\\Controllers\\StudentsController.cs",
-              "RelativeToolTip": "StudentManagement.Api\\Controllers\\StudentsController.cs",
-              "ViewState": "AgIAAKsAAAAAAAAAAAAYwLIAAABVAAAAAAAAAA==",
+              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 7\\StudentManagement\\StudentManagement.Api\\Controllers\\StudentsController.cs*",
+              "RelativeToolTip": "StudentManagement.Api\\Controllers\\StudentsController.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-12T16:17:05.351Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\StudentManagement\\StudentManagement.Api\\Program.cs",
-              "RelativeDocumentMoniker": "StudentManagement.Api\\Program.cs",
-              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\StudentManagement\\StudentManagement.Api\\Program.cs",
-              "RelativeToolTip": "StudentManagement.Api\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-12T15:55:36.745Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
               "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\StudentManagement\\StudentManagement.Api\\appsettings.json",
+              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 7\\StudentManagement\\StudentManagement.Api\\appsettings.json",
               "RelativeDocumentMoniker": "StudentManagement.Api\\appsettings.json",
-              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\StudentManagement\\StudentManagement.Api\\appsettings.json",
+              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 7\\StudentManagement\\StudentManagement.Api\\appsettings.json",
               "RelativeToolTip": "StudentManagement.Api\\appsettings.json",
               "ViewState": "AgIAAAIAAAAAAAAAAAAcwAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -98,9 +90,9 @@
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\StudentManagement\\StudentManagement.Api\\Data\\ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 7\\StudentManagement\\StudentManagement.Api\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "StudentManagement.Api\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\StudentManagement\\StudentManagement.Api\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 7\\StudentManagement\\StudentManagement.Api\\Data\\ApplicationDbContext.cs",
               "RelativeToolTip": "StudentManagement.Api\\Data\\ApplicationDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -110,9 +102,9 @@
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "Student.cs",
-              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\StudentManagement\\StudentManagement.Api\\Models\\Student.cs",
+              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 7\\StudentManagement\\StudentManagement.Api\\Models\\Student.cs",
               "RelativeDocumentMoniker": "StudentManagement.Api\\Models\\Student.cs",
-              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\StudentManagement\\StudentManagement.Api\\Models\\Student.cs",
+              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 7\\StudentManagement\\StudentManagement.Api\\Models\\Student.cs",
               "RelativeToolTip": "StudentManagement.Api\\Models\\Student.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -122,22 +114,46 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "StudentManagement.Api.csproj",
-              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\StudentManagement\\StudentManagement.Api\\StudentManagement.Api.csproj",
+              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 7\\StudentManagement\\StudentManagement.Api\\StudentManagement.Api.csproj",
               "RelativeDocumentMoniker": "StudentManagement.Api\\StudentManagement.Api.csproj",
-              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\StudentManagement\\StudentManagement.Api\\StudentManagement.Api.csproj",
+              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 7\\StudentManagement\\StudentManagement.Api\\StudentManagement.Api.csproj",
               "RelativeToolTip": "StudentManagement.Api\\StudentManagement.Api.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2026-10-12T15:40:40.597Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 7\\StudentManagement\\StudentManagement.Api\\Program.cs",
+              "RelativeDocumentMoniker": "StudentManagement.Api\\Program.cs",
+              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 7\\StudentManagement\\StudentManagement.Api\\Program.cs",
+              "RelativeToolTip": "StudentManagement.Api\\Program.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAYwBgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T15:55:36.745Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "README.md",
+              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 7\\StudentManagement\\StudentManagement.Api\\README.md",
+              "RelativeDocumentMoniker": "StudentManagement.Api\\README.md",
+              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 7\\StudentManagement\\StudentManagement.Api\\README.md",
+              "RelativeToolTip": "StudentManagement.Api\\README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-10-12T17:14:39.18Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "20261012160045_InitialCreate.cs",
-              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\StudentManagement\\StudentManagement.Api\\Migrations\\20261012160045_InitialCreate.cs",
+              "DocumentMoniker": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 7\\StudentManagement\\StudentManagement.Api\\Migrations\\20261012160045_InitialCreate.cs",
               "RelativeDocumentMoniker": "StudentManagement.Api\\Migrations\\20261012160045_InitialCreate.cs",
-              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\StudentManagement\\StudentManagement.Api\\Migrations\\20261012160045_InitialCreate.cs",
+              "ToolTip": "D:\\Personal\\Jeyachandran\\HCL\\Projects\\Day 7\\StudentManagement\\StudentManagement.Api\\Migrations\\20261012160045_InitialCreate.cs",
               "RelativeToolTip": "StudentManagement.Api\\Migrations\\20261012160045_InitialCreate.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

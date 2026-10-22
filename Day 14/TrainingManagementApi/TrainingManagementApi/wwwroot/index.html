@@ -1,0 +1,289 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#080b16">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">T</div>
+            <div>
+                <h2>TrainPro</h2>
+                <small>Management System</small>
+            </div>
+        </div>
+
+        <p class="nav-label">WORKSPACE</p>
+        <nav>
+            <button class="nav-item active" data-page="dashboard">▦ Dashboard</button>
+            <button class="nav-item" data-page="courses">▤ Courses</button>
+            <button class="nav-item" data-page="learners">♙ Learners</button>
+            <button class="nav-item" data-page="enrollments">▣ Enrollments</button>
+        </nav>
+
+        <div class="sidebar-footer">
+            <span class="status-dot"></span> API application
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">TRAINING MANAGEMENT</p>
+                <h1 id="page-title">Dashboard</h1>
+            </div>
+            <div class="topbar-right">
+                <span class="online-dot"></span>
+                <span>System online</span>
+            </div>
+        </header>
+
+        <div id="message" class="message" hidden></div>
+
+        <section id="dashboard-page" class="page">
+            <div class="welcome">
+                <div>
+                    <p class="eyebrow light">OVERVIEW</p>
+                    <h2>Manage your training programs</h2>
+                    <p>Track courses, learners and enrollment activity in one place.</p>
+                </div>
+                <div class="welcome-mark">TMS</div>
+            </div>
+
+            <div class="stats-grid">
+                <article class="stat-card">
+                    <div class="stat-icon purple">▤</div>
+                    <p>Total Courses</p>
+                    <h2 id="stat-courses">0</h2>
+                    <small>Available training programs</small>
+                </article>
+                <article class="stat-card">
+                    <div class="stat-icon blue">♙</div>
+                    <p>Total Learners</p>
+                    <h2 id="stat-learners">0</h2>
+                    <small>Registered learners</small>
+                </article>
+                <article class="stat-card">
+                    <div class="stat-icon orange">▣</div>
+                    <p>Active Enrollments</p>
+                    <h2 id="stat-enrollments">0</h2>
+                    <small>Currently registered</small>
+                </article>
+                <article class="stat-card">
+                    <div class="stat-icon green">✓</div>
+                    <p>Available Seats</p>
+                    <h2 id="stat-seats">0</h2>
+                    <small>Across all courses</small>
+                </article>
+            </div>
+
+            <section class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Course overview</h2>
+                        <p>Current training programs</p>
+                    </div>
+                    <button class="primary-btn" data-go="courses">View courses →</button>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>COURSE</th>
+                                <th>FEE</th>
+                                <th>DURATION</th>
+                                <th>SEATS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dashboard-courses"></tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+
+        <section id="courses-page" class="page" hidden>
+            <div class="section-heading">
+                <div>
+                    <h2>Courses</h2>
+                    <p>Manage and explore training programs.</p>
+                </div>
+                <button class="primary-btn" id="show-course-form">+ Add course</button>
+            </div>
+
+            <form id="course-form" class="panel form-panel" hidden>
+                <h3>Add a course</h3>
+                <div class="form-grid">
+                    <label>
+                        Course code
+                        <input id="course-code" required maxlength="20" placeholder="e.g. CS201">
+                    </label>
+                    <label>
+                        Course title
+                        <input id="course-title" required maxlength="100" placeholder="e.g. C# Advanced">
+                    </label>
+                    <label>
+                        Fee (₹)
+                        <input id="course-fee" type="number" min="0" step="0.01" required>
+                    </label>
+                    <label>
+                        Duration (days)
+                        <input id="course-duration" type="number" min="1" required>
+                    </label>
+                    <label>
+                        Total seats
+                        <input id="course-seats" type="number" min="1" required>
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="secondary-btn" id="cancel-course-form">Cancel</button>
+                    <button type="submit" class="primary-btn">Save course</button>
+                </div>
+            </form>
+
+            <div class="toolbar">
+                <input id="course-search" class="search-input" placeholder="Search course code or title...">
+                <select id="course-sort" aria-label="Sort courses">
+                    <option value="">Default order</option>
+                    <option value="fee">Fee: low to high</option>
+                    <option value="fee-desc">Fee: high to low</option>
+                </select>
+            </div>
+
+            <section class="panel">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>COURSE</th>
+                                <th>FEE</th>
+                                <th>DURATION</th>
+                                <th>TOTAL SEATS</th>
+                                <th>AVAILABLE</th>
+                            </tr>
+                        </thead>
+                        <tbody id="courses-table"></tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+
+        <section id="learners-page" class="page" hidden>
+            <div class="section-heading">
+                <div>
+                    <h2>Learners</h2>
+                    <p>Register and find learners.</p>
+                </div>
+                <button class="primary-btn" id="show-learner-form">+ Register learner</button>
+            </div>
+
+            <form id="learner-form" class="panel form-panel" hidden>
+                <h3>Register a learner</h3>
+                <div class="form-grid">
+                    <label>
+                        Learner ID
+                        <input id="learner-id" required maxlength="30" placeholder="e.g. L001">
+                    </label>
+                    <label>
+                        Full name
+                        <input id="learner-name" required maxlength="100" placeholder="Learner name">
+                    </label>
+                    <label>
+                        Contact number
+                        <input id="learner-contact" required maxlength="20" placeholder="Phone number">
+                    </label>
+                    <label>
+                        Email address
+                        <input id="learner-email" type="email" required maxlength="150" placeholder="name@example.com">
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="secondary-btn" id="cancel-learner-form">Cancel</button>
+                    <button type="submit" class="primary-btn">Register learner</button>
+                </div>
+            </form>
+
+            <div class="toolbar">
+                <input id="learner-search" class="search-input" placeholder="Search learner ID, name or email...">
+            </div>
+
+            <section class="panel">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>LEARNER ID</th>
+                                <th>NAME</th>
+                                <th>CONTACT</th>
+                                <th>EMAIL</th>
+                            </tr>
+                        </thead>
+                        <tbody id="learners-table"></tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+
+        <section id="enrollments-page" class="page" hidden>
+            <div class="section-heading">
+                <div>
+                    <h2>Enrollments</h2>
+                    <p>Enroll learners and manage registration records.</p>
+                </div>
+                <button class="primary-btn" id="show-enrollment-form">+ New enrollment</button>
+            </div>
+
+            <form id="enrollment-form" class="panel form-panel" hidden>
+                <h3>Enroll a learner</h3>
+                <div class="form-grid">
+                    <label>
+                        Learner
+                        <select id="enrollment-learner" required>
+                            <option value="">Select learner</option>
+                        </select>
+                    </label>
+                    <label>
+                        Course
+                        <select id="enrollment-course" required>
+                            <option value="">Select course</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="secondary-btn" id="cancel-enrollment-form">Cancel</button>
+                    <button type="submit" class="primary-btn">Confirm enrollment</button>
+                </div>
+            </form>
+
+            <section class="panel">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>LEARNER</th>
+                                <th>COURSE</th>
+                                <th>DATE</th>
+                                <th>STATUS</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody id="enrollments-table"></tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+
+        <footer>Training Management System <span>•</span> ASP.NET Core API</footer>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

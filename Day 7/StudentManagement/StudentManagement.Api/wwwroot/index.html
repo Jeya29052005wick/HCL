@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <header class="header">
+            <div>
+                <h1>Student Management</h1>
+                <p>Manage student records using your ASP.NET Core API.</p>
+            </div>
+            <button id="showFormButton" class="primary">+ Add Student</button>
+        </header>
+
+        <p id="message" class="message" role="status"></p>
+
+        <section id="formSection" class="card" hidden>
+            <h2 id="formTitle">Add Student</h2>
+            <form id="studentForm">
+                <input type="hidden" id="studentId">
+
+                <label for="name">Name</label>
+                <input id="name" maxlength="100" required placeholder="Enter student name">
+
+                <label for="email">Email</label>
+                <input id="email" type="email" maxlength="254" required placeholder="student@example.com">
+
+                <label for="department">Department</label>
+                <input id="department" maxlength="100" required placeholder="Enter department">
+
+                <label for="age">Age (17–60)</label>
+                <input id="age" type="number" min="17" max="60" step="1" required placeholder="Enter age">
+
+                <div class="form-buttons">
+                    <button type="submit" class="primary" id="saveButton">Save Student</button>
+                    <button type="button" id="cancelButton" class="secondary">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Student List</h2>
+            <form id="searchForm" class="search-form">
+                <input id="searchName" placeholder="Search by name">
+                <input id="searchDepartment" placeholder="Search by department">
+                <button type="submit" class="primary">Search</button>
+                <button type="button" id="clearButton" class="secondary">Clear</button>
+            </form>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Department</th>
+                            <th>Age</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTable">
+                        <tr><td colspan="6" class="empty">Loading students...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

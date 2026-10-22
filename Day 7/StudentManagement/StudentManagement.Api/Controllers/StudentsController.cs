@@ -8,7 +8,7 @@ namespace StudentManagement.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StudentsController : ControllerBase
+    public class StudentsController : ControllerBaseA
     {
         private readonly ApplicationDbContext _context;
 
