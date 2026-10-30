@@ -1,17 +1,22 @@
-using Scalar.AspNetCore;
-using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
+using WebApiPractice.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+// Register controllers
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+
+// Register DbContext
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Register OpenAPI
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure HTTP pipeline
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -24,4 +29,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-﻿
