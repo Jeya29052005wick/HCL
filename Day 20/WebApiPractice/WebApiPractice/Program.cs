@@ -3,6 +3,7 @@ using Scalar.AspNetCore;
 using WebApiPractice.Data;
 using WebApiPractice.Repositories;
 using WebApiPractice.Services;
+using WebApiPractice.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,23 +24,32 @@ builder.Services.AddScoped<IStudentService, StudentService>();
 // 5. Register Repository Layer
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 
+// 6. Register Global Exception Handler
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+
+// 7. Register Problem Details
+builder.Services.AddProblemDetails();
+
 // Build the application
 var app = builder.Build();
 
-// 6. Configure OpenAPI and Scalar in Development
+// 8. Configure Global Exception Handling
+app.UseExceptionHandler();
+
+// 9. Configure OpenAPI and Scalar in Development
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
     app.MapScalarApiReference();
 }
 
-// 7. Configure Middleware
+// 10. Configure Middleware
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-// 8. Map Controller Endpoints
+// 11. Map Controller Endpoints
 app.MapControllers();
 
-// 9. Run the application
+// 12. Run the application
 app.Run();

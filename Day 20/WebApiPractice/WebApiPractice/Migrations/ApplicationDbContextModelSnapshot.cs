@@ -39,7 +39,7 @@ namespace WebApiPractice.Migrations
                     b.HasIndex("DepartmentName")
                         .IsUnique();
 
-                    b.ToTable("Departments");
+                    b.ToTable("Departments", (string)null);
                 });
 
             modelBuilder.Entity("WebApiPractice.Models.Student", b =>
@@ -73,7 +73,7 @@ namespace WebApiPractice.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.ToTable("Students", t =>
+                    b.ToTable("Students", null, t =>
                         {
                             t.HasCheckConstraint("CK_Students_Age", "[Age] >= 17 AND [Age] <= 60");
                         });
