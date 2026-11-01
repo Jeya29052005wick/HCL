@@ -24,6 +24,10 @@ builder.Services.AddScoped<IShowRepository, ShowRepository>();
 
 builder.Services.AddScoped<IShowService, ShowService>();
 
+builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+
+builder.Services.AddScoped<IBookingService, BookingService>();
+
 
 // Add services to the container.
 
