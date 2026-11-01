@@ -13,6 +13,7 @@ namespace MovieTicketBookingSystem.Data
         public DbSet<Movie> Movies => Set<Movie>();
         public DbSet<Theatre> Theatres => Set<Theatre>();
         public DbSet<Screen> Screens => Set<Screen>();
+        public DbSet<Seat> Seats => Set<Seat>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -103,6 +104,45 @@ namespace MovieTicketBookingSystem.Data
 
                 entity.HasIndex(s => new { s.TheatreId, s.ScreenName })
                       .IsUnique();
+            });
+
+            modelBuilder.Entity<Seat>(entity =>
+            {
+                entity.ToTable("Seats", table =>
+                {
+                    table.HasCheckConstraint(
+                        "CK_Seats_SeatNumber",
+                        "[SeatNumber] > 0"
+                    );
+                });
+
+                entity.HasKey(s => s.SeatId);
+
+                entity.Property(s => s.SeatId)
+                      .UseIdentityColumn();
+
+                entity.Property(s => s.RowName)
+                      .IsRequired()
+                      .HasMaxLength(5);
+
+                entity.Property(s => s.SeatNumber)
+                      .IsRequired();
+
+                entity.Property(s => s.SeatType)
+                      .IsRequired()
+                      .HasMaxLength(30);
+
+                entity.HasOne(s => s.Screen)
+                      .WithMany()
+                      .HasForeignKey(s => s.ScreenId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasIndex(s => new
+                {
+                    s.ScreenId,
+                    s.RowName,
+                    s.SeatNumber
+                }).IsUnique();
             });
         }
     }
