@@ -11,6 +11,9 @@ builder.Services.AddScoped<IMovieRepository, MovieRepository>();
 
 builder.Services.AddScoped<IMovieService, MovieService>();
 
+builder.Services.AddScoped<ITheatreRepository, TheatreRepository>();
+builder.Services.AddScoped<ITheatreService, TheatreService>();
+
 // Add services to the container.
 
 builder.Services.AddControllers();

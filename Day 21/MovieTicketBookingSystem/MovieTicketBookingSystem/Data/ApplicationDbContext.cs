@@ -11,6 +11,7 @@ namespace MovieTicketBookingSystem.Data
         }
 
         public DbSet<Movie> Movies => Set<Movie>();
+        public DbSet<Theatre> Theatres => Set<Theatre>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -62,6 +63,24 @@ namespace MovieTicketBookingSystem.Data
                           .IsRequired()
                           .HasMaxLength(50);
                 });
+
+            modelBuilder.Entity<Theatre>(entity =>
+            {
+                entity.ToTable("Theatres");
+
+                entity.HasKey(t => t.TheatreId);
+
+                entity.Property(t => t.TheatreId)
+                      .UseIdentityColumn();
+
+                entity.Property(t => t.Name)
+                      .IsRequired()
+                      .HasMaxLength(150);
+
+                entity.Property(t => t.Location)
+                      .IsRequired()
+                      .HasMaxLength(200);
+            });
         }
     }
 }
