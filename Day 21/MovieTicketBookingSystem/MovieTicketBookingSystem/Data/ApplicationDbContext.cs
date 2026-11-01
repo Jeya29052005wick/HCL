@@ -14,6 +14,8 @@ namespace MovieTicketBookingSystem.Data
         public DbSet<Theatre> Theatres => Set<Theatre>();
         public DbSet<Screen> Screens => Set<Screen>();
         public DbSet<Seat> Seats => Set<Seat>();
+        public DbSet<Show> Shows => Set<Show>();
+        public DbSet<ShowSeat> ShowSeats => Set<ShowSeat>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -142,6 +144,79 @@ namespace MovieTicketBookingSystem.Data
                     s.ScreenId,
                     s.RowName,
                     s.SeatNumber
+                }).IsUnique();
+            });
+
+            modelBuilder.Entity<Show>(entity =>
+            {
+                entity.ToTable("Shows", table =>
+                {
+                    table.HasCheckConstraint(
+                        "CK_Shows_EndTime",
+                        "[EndTime] > [StartTime]"
+                    );
+
+                    table.HasCheckConstraint(
+                        "CK_Shows_TicketPrice",
+                        "[TicketPrice] >= 0"
+                    );
+                });
+
+                entity.HasKey(s => s.ShowId);
+
+                entity.Property(s => s.ShowId)
+                      .UseIdentityColumn();
+
+                entity.Property(s => s.StartTime)
+                      .HasColumnType("datetime2")
+                      .IsRequired();
+
+                entity.Property(s => s.EndTime)
+                      .HasColumnType("datetime2")
+                      .IsRequired();
+
+                entity.Property(s => s.TicketPrice)
+                      .HasPrecision(10, 2)
+                      .IsRequired();
+
+                entity.HasOne(s => s.Movie)
+                      .WithMany()
+                      .HasForeignKey(s => s.MovieId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(s => s.Screen)
+                      .WithMany()
+                      .HasForeignKey(s => s.ScreenId)
+                      .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            modelBuilder.Entity<ShowSeat>(entity =>
+            {
+                entity.ToTable("ShowSeats");
+
+                entity.HasKey(ss => ss.ShowSeatId);
+
+                entity.Property(ss => ss.ShowSeatId)
+                      .UseIdentityColumn();
+
+                entity.Property(ss => ss.Status)
+                      .IsRequired()
+                      .HasMaxLength(20);
+
+                entity.HasOne(ss => ss.Show)
+                      .WithMany()
+                      .HasForeignKey(ss => ss.ShowId)
+                      .OnDelete(DeleteBehavior.Cascade);
+
+                entity.HasOne(ss => ss.Seat)
+                      .WithMany()
+                      .HasForeignKey(ss => ss.SeatId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasIndex(ss => new
+                {
+                    ss.ShowId,
+                    ss.SeatId
                 }).IsUnique();
             });
         }
