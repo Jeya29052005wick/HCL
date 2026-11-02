@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MovieTicketBookingSystem.DTOs.Bookings;
 using MovieTicketBookingSystem.Services.Interfaces;
+using MovieTicketBooking.Constants;
 
 namespace MovieTicketBookingSystem.Controllers
 {
@@ -16,6 +18,7 @@ namespace MovieTicketBookingSystem.Controllers
             _bookingService = bookingService;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetAll(
             [FromQuery] int? showId,
@@ -28,6 +31,7 @@ namespace MovieTicketBookingSystem.Controllers
             return Ok(bookings);
         }
 
+        [AllowAnonymous]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -41,6 +45,7 @@ namespace MovieTicketBookingSystem.Controllers
             return Ok(booking);
         }
 
+        [AllowAnonymous]
         [HttpGet("show/{showId:int}")]
         public async Task<IActionResult> GetByShowId(int showId)
         {
@@ -50,6 +55,7 @@ namespace MovieTicketBookingSystem.Controllers
             return Ok(bookings);
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(
             CreateBookingRequest request)
@@ -80,6 +86,7 @@ namespace MovieTicketBookingSystem.Controllers
             }
         }
 
+        [Authorize]
         [HttpPut("{id:int}/cancel")]
         public async Task<IActionResult> Cancel(int id)
         {

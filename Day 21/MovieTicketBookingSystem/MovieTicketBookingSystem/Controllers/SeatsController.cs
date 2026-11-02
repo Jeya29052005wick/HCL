@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MovieTicketBooking.Constants;
 using MovieTicketBookingSystem.DTOs.Seats;
 using MovieTicketBookingSystem.Services.Interfaces;
 
@@ -41,6 +43,7 @@ namespace MovieTicketBookingSystem.Controllers
         }
 
         // POST: api/seats
+        [Authorize(Roles = UserRoles.Admin + "," + UserRoles.TheatreManager)]
         [HttpPost]
         public async Task<IActionResult> Create(CreateSeatRequest request)
         {
@@ -68,6 +71,7 @@ namespace MovieTicketBookingSystem.Controllers
         }
 
         // POST: api/seats/bulk
+        [Authorize(Roles = UserRoles.Admin + "," + UserRoles.TheatreManager)]
         [HttpPost("bulk")]
         public async Task<IActionResult> BulkCreate(
             BulkCreateSeatsRequest request)
@@ -95,6 +99,7 @@ namespace MovieTicketBookingSystem.Controllers
         }
 
         // PUT: api/seats/1
+        [Authorize(Roles = UserRoles.Admin + "," + UserRoles.TheatreManager)]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Update(
             int id,
@@ -122,6 +127,7 @@ namespace MovieTicketBookingSystem.Controllers
         }
 
         // DELETE: api/seats/1
+        [Authorize(Roles = UserRoles.Admin + "," + UserRoles.TheatreManager)]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {

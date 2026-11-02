@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using MovieTicketBooking.Models;
 using MovieTicketBookingSystem.Models;
 
 namespace MovieTicketBookingSystem.Data
@@ -18,6 +20,7 @@ namespace MovieTicketBookingSystem.Data
         public DbSet<ShowSeat> ShowSeats => Set<ShowSeat>();
         public DbSet<Booking> Bookings => Set<Booking>();
         public DbSet<BookingSeat> BookingSeats => Set<BookingSeat>();
+        public DbSet<User> Users => Set<User>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -300,6 +303,40 @@ namespace MovieTicketBookingSystem.Data
                     .WithMany()
                     .HasForeignKey(bs => bs.SeatId)
                     .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.ToTable("Users");
+
+                entity.HasKey(u => u.UserId);
+
+                entity.Property(u => u.UserId)
+                    .ValueGeneratedOnAdd();
+
+                entity.Property(u => u.FullName)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(u => u.Email)
+                    .IsRequired()
+                    .HasMaxLength(150);
+
+                entity.HasIndex(u => u.Email)
+                    .IsUnique();
+
+                entity.Property(u => u.PasswordHash)
+                    .IsRequired()
+                    .HasMaxLength(500);
+
+                entity.Property(u => u.Role)
+                    .IsRequired()
+                    .HasMaxLength(20)
+                    .HasDefaultValue("Customer");
+
+                entity.Property(u => u.CreatedAt)
+                    .IsRequired()
+                    .HasColumnType("datetime2");
             });
         }
     }
