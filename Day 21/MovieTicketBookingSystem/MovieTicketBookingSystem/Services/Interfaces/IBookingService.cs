@@ -1,4 +1,5 @@
 ﻿using MovieTicketBookingSystem.DTOs.Bookings;
+using MovieTicketBookingSystem.Models;
 
 namespace MovieTicketBookingSystem.Services.Interfaces
 {
@@ -13,8 +14,11 @@ namespace MovieTicketBookingSystem.Services.Interfaces
         Task<List<BookingResponse>> GetByShowIdAsync(int showId);
 
         Task<BookingResponse> CreateAsync(
-            CreateBookingRequest request);
+    CreateBookingRequest request,
+    int userId);
 
         Task<BookingResponse?> CancelAsync(int bookingId);
+
+        Task<Booking?> GetEntityByIdAsync(int bookingId);
     }
 }

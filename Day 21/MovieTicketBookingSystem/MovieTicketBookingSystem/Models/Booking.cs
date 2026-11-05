@@ -1,4 +1,6 @@
-﻿namespace MovieTicketBookingSystem.Models
+﻿using MovieTicketBooking.Models;
+
+namespace MovieTicketBookingSystem.Models
 {
     public class Booking
     {
@@ -21,6 +23,9 @@
         public string Status { get; set; } = "Confirmed";
 
         public Show Show { get; set; } = null!;
+
+        public int? UserId { get; set; }
+        public User? User { get; set; }
 
         public ICollection<BookingSeat> BookingSeats { get; set; }
             = new List<BookingSeat>();

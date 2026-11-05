@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MovieTicketBookingSystem.Authorization;
 using MovieTicketBookingSystem.DTOs.Bookings;
+using MovieTicketBookingSystem.Models;
 using MovieTicketBookingSystem.Services.Interfaces;
-using MovieTicketBooking.Constants;
+using System.Security.Claims;
 
 namespace MovieTicketBookingSystem.Controllers
 {
@@ -12,10 +15,14 @@ namespace MovieTicketBookingSystem.Controllers
     public class BookingsController : ControllerBase
     {
         private readonly IBookingService _bookingService;
+        private readonly IAuthorizationService _authorizationService;
 
-        public BookingsController(IBookingService bookingService)
+        public BookingsController(
+            IBookingService bookingService,
+            IAuthorizationService authorizationService)
         {
             _bookingService = bookingService;
+            _authorizationService = authorizationService;
         }
 
         [AllowAnonymous]
@@ -39,7 +46,10 @@ namespace MovieTicketBookingSystem.Controllers
 
             if (booking == null)
             {
-                return NotFound(new { message = "Booking not found." });
+                return NotFound(new
+                {
+                    message = "Booking not found."
+                });
             }
 
             return Ok(booking);
@@ -62,7 +72,19 @@ namespace MovieTicketBookingSystem.Controllers
         {
             try
             {
-                var booking = await _bookingService.CreateAsync(request);
+                var userIdClaim =
+                    User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                if (!int.TryParse(userIdClaim, out int userId))
+                {
+                    return Unauthorized(new
+                    {
+                        message = "Invalid or missing user ID in token."
+                    });
+                }
+
+                var booking =
+                    await _bookingService.CreateAsync(request, userId);
 
                 return CreatedAtAction(
                     nameof(GetById),
@@ -92,14 +114,44 @@ namespace MovieTicketBookingSystem.Controllers
         {
             try
             {
-                var booking = await _bookingService.CancelAsync(id);
+                // 1. Retrieve the actual booking entity.
+                var booking =
+                    await _bookingService.GetEntityByIdAsync(id);
 
                 if (booking == null)
                 {
-                    return NotFound(new { message = "Booking not found." });
+                    return NotFound(new
+                    {
+                        message = "Booking not found."
+                    });
                 }
 
-                return Ok(booking);
+                // 2. Check whether the logged-in user owns this booking.
+                var authorizationResult =
+                    await _authorizationService.AuthorizeAsync(
+                        User,
+                        booking,
+                        new BookingOwnerRequirement());
+
+                // 3. Reject users who do not own this booking.
+                if (!authorizationResult.Succeeded)
+                {
+                    return Forbid();
+                }
+
+                // 4. Cancel the booking after authorization succeeds.
+                var cancelledBooking =
+                    await _bookingService.CancelAsync(id);
+
+                if (cancelledBooking == null)
+                {
+                    return NotFound(new
+                    {
+                        message = "Booking not found."
+                    });
+                }
+
+                return Ok(cancelledBooking);
             }
             catch (InvalidOperationException ex)
             {

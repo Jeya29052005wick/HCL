@@ -274,6 +274,11 @@ namespace MovieTicketBookingSystem.Data
                     .WithMany()
                     .HasForeignKey(b => b.ShowId)
                     .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(b => b.User)
+                    .WithMany()
+                    .HasForeignKey(b => b.UserId)
+                    .OnDelete(DeleteBehavior.Restrict);
             });
 
             modelBuilder.Entity<BookingSeat>(entity =>

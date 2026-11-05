@@ -57,6 +57,7 @@ namespace MovieTicketBookingSystem.Repositories
                 .ToListAsync();
         }
 
+
         public async Task AddWithSeatsAsync(
             Booking booking,
             List<int> seatIds)
@@ -66,14 +67,12 @@ namespace MovieTicketBookingSystem.Repositories
 
             try
             {
+                // Add the booking and its child BookingSeats.
+                // EF Core tracks the complete object graph.
                 await _context.Bookings.AddAsync(booking);
 
-                // Save first to generate BookingId.
+                // Save Booking and BookingSeats together.
                 await _context.SaveChangesAsync();
-
-                // Add the selected seats to the booking.
-                await _context.BookingSeats.AddRangeAsync(
-                    booking.BookingSeats);
 
                 // Mark the selected seats as booked for this show.
                 var showSeats = await _context.ShowSeats
@@ -87,6 +86,7 @@ namespace MovieTicketBookingSystem.Repositories
                     showSeat.Status = "Booked";
                 }
 
+                // Save the updated ShowSeats.
                 await _context.SaveChangesAsync();
 
                 await transaction.CommitAsync();
@@ -97,6 +97,7 @@ namespace MovieTicketBookingSystem.Repositories
                 throw;
             }
         }
+
 
         public async Task CancelAsync(Booking booking)
         {

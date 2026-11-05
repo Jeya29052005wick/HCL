@@ -18,6 +18,10 @@ namespace MovieTicketBookingSystem.Services
             _showRepository = showRepository;
         }
 
+        public async Task<Booking?> GetEntityByIdAsync(int bookingId)
+        {
+            return await _bookingRepository.GetByIdAsync(bookingId);
+        }
         public async Task<List<BookingResponse>> GetAllAsync(
             int? showId,
             string? status)
@@ -44,7 +48,8 @@ namespace MovieTicketBookingSystem.Services
         }
 
         public async Task<BookingResponse> CreateAsync(
-            CreateBookingRequest request)
+    CreateBookingRequest request,
+    int userId)
         {
             // Validate that the show exists.
             var show = await _showRepository.GetByIdAsync(request.ShowId);
@@ -90,6 +95,7 @@ namespace MovieTicketBookingSystem.Services
                     "MOV" + Guid.NewGuid().ToString("N")[..12].ToUpperInvariant(),
 
                 ShowId = request.ShowId,
+                UserId = userId,
                 CustomerName = request.CustomerName.Trim(),
                 CustomerEmail = request.CustomerEmail.Trim(),
                 CustomerPhone = request.CustomerPhone.Trim(),
