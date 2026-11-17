@@ -1,0 +1,100 @@
+
+<div class="department-container">
+
+  <div class="header">
+
+    <div>
+      <h2>Department Management</h2>
+      <p>Manage all your departments here.</p>
+    </div>
+
+    <button
+      class="add-btn"
+      (click)="openAddForm()"
+    >
+      + Add Department
+    </button>
+
+  </div>
+
+  @if (showForm) {
+    <app-department-form
+      [department]="selectedDepartment"
+      (departmentSaved)="onDepartmentSaved()"
+      (cancelled)="onFormCancelled()"
+    />
+  }
+
+  <div class="table-container">
+
+    <div class="table-header">
+      <h3>All Departments</h3>
+      <span>{{ departments.length }} Departments</span>
+    </div>
+
+    @if (isLoading) {
+
+      <p class="message">Loading departments...</p>
+
+    } @else if (departments.length === 0) {
+
+      <p class="message">No departments found.</p>
+
+    } @else {
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Department Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          @for (department of departments; track department.id) {
+
+            <tr>
+
+              <td>{{ department.id }}</td>
+
+              <td>{{ department.name }}</td>
+
+              <td>
+                {{ department.description || 'No description' }}
+              </td>
+
+              <td class="actions">
+
+                <button
+                  class="edit-btn"
+                  (click)="editDepartment(department)"
+                >
+                  Edit
+                </button>
+
+                <button
+                  class="delete-btn"
+                  (click)="deleteDepartment(department)"
+                >
+                  Delete
+                </button>
+
+              </td>
+
+            </tr>
+
+          }
+
+        </tbody>
+
+      </table>
+
+    }
+
+  </div>
+
+</div>
