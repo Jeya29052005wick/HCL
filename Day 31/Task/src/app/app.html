@@ -1,0 +1,34 @@
+
+<div class="container">
+
+  <h1>Angular Counter</h1>
+
+  <p class="subtitle">Signal | Computed | Effect</p>
+
+  <div class="counter-card">
+
+    <h2>Current Count</h2>
+
+    <h1 class="count">{{ count() }}</h1>
+
+    <div class="buttons">
+      <button class="decrement" (click)="decrement()">
+        - Decrement
+      </button>
+
+      <button class="increment" (click)="increment()">
+        + Increment
+      </button>
+    </div>
+
+    <button class="reset" (click)="reset()">
+      Reset
+    </button>
+
+    <div class="status">
+      <p>Status: <strong>{{ counterStatus() }}</strong></p>
+    </div>
+
+  </div>
+
+</div>
