@@ -19,6 +19,12 @@ builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 // Register services
 builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 
+// Employee repository
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+
+// Employee service
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+
 // Register controllers
 builder.Services.AddControllers();
 

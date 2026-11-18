@@ -1,0 +1,98 @@
+
+.form-container {
+  width: 100%;
+  box-sizing: border-box;
+  background: white;
+  border-radius: 10px;
+}
+
+.form-container h3 {
+  margin: 0 0 22px;
+  font-size: 21px;
+  color: #222;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 17px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #555;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group small {
+  color: #777;
+  font-size: 12px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.save-btn,
+.cancel-btn {
+  padding: 11px 17px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.save-btn {
+  background: #222;
+  color: white;
+  border: none;
+}
+
+.save-btn:hover {
+  background: #444;
+}
+
+.cancel-btn {
+  background: white;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.cancel-btn:hover {
+  background: #f5f5f5;
+}
+
+.error-message {
+  color: #b42318;
+  background: #fef3f2;
+  border: 1px solid #fecdca;
+  padding: 11px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
