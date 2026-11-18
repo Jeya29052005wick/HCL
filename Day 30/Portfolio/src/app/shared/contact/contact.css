@@ -1,0 +1,151 @@
+.contact {
+  padding: 100px 10%;
+  background: #0a0a0a;
+  color: white;
+}
+
+.section-heading {
+  margin-bottom: 50px;
+}
+
+.section-heading > p {
+  color: #a78bfa;
+  font-size: 13px;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.section-heading h2 {
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+
+.section-heading span {
+  color: #a1a1aa;
+  font-size: 15px;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+}
+
+.contact-info h3 {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.contact-info > p {
+  color: #a1a1aa;
+  line-height: 1.8;
+  margin-bottom: 35px;
+}
+
+.contact-detail {
+  margin-bottom: 25px;
+}
+
+.contact-detail span {
+  display: block;
+  color: #a78bfa;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.contact-detail p,
+.contact-detail a {
+  color: #d4d4d8;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #d4d4d8;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 15px;
+  background: #181818;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: white;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #7c3aed;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group small {
+  color: #f87171;
+  font-size: 12px;
+}
+
+form button {
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background: #7c3aed;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover:not(:disabled) {
+  background: #6d28d9;
+}
+
+form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.success-message {
+  color: #4ade80;
+  font-size: 14px;
+}
+
+footer {
+  margin-top: 80px;
+  padding-top: 25px;
+  border-top: 1px solid #333;
+  text-align: center;
+  color: #71717a;
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 70px 7%;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

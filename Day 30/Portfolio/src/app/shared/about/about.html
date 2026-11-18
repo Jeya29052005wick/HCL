@@ -1,0 +1,58 @@
+<section class="about" id="about">
+
+  <div class="section-heading">
+    <p>GET TO KNOW ME</p>
+    <h2>About Me</h2>
+  </div>
+
+  <div class="about-content">
+
+    <div class="about-description">
+      <h3>Building technology with purpose.</h3>
+
+      @Input() summary: string = '';
+
+      <div class="stats">
+
+        <div class="stat-card">
+          <h3>{{ education.cgpa }}</h3>
+          <p>CGPA</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>6 Months</h3>
+          <p>Internship</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="details">
+
+      <div class="detail-card">
+        <h3>Education</h3>
+
+        <h4>{{ education.degree }}</h4>
+
+        <p>{{ education.college }}</p>
+
+        <span>{{ education.duration }}</span>
+
+      </div>
+
+      <div class="detail-card">
+        <h3>Experience</h3>
+
+        <h4>{{ internship.role }}</h4>
+
+        <p>{{ internship.company }}</p>
+
+        <span>{{ internship.duration }}</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

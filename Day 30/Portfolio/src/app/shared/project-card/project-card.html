@@ -1,0 +1,33 @@
+<div class="project-card">
+
+  <div class="project-number">
+    PROJECT 0{{ project.id }}
+  </div>
+
+  <h3>{{ project.title }}</h3>
+
+  <p class="description">
+    {{ project.description }}
+  </p>
+
+  <div class="technologies">
+
+    @for (technology of project.technologies; track technology) {
+
+      <span class="technology">
+        {{ technology }}
+      </span>
+
+    }
+
+  </div>
+
+  <button
+    class="view-btn"
+    (click)="viewProject.emit(project)">
+
+    View Details ↗
+
+  </button>
+
+</div>
