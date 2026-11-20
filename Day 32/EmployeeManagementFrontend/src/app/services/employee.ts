@@ -3,11 +3,25 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import {
-  Employee,
-  CreateEmployee,
-  UpdateEmployee
-} from '../models/employee.model';
+export interface Employee {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  departmentId: number;
+  departmentName: string;
+  joiningDate: string;
+}
+
+export interface EmployeeRequest {
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  departmentId: number;
+  joiningDate: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -24,20 +38,17 @@ export class EmployeeService {
   }
 
   // Get employee by ID
-  getEmployeeById(id: number): Observable<Employee> {
+  getEmployee(id: number): Observable<Employee> {
     return this.http.get<Employee>(`${this.apiUrl}/${id}`);
   }
 
-  // Create employee
-  createEmployee(data: CreateEmployee): Observable<Employee> {
+  // Add employee
+  addEmployee(data: EmployeeRequest): Observable<Employee> {
     return this.http.post<Employee>(this.apiUrl, data);
   }
 
   // Update employee
-  updateEmployee(
-    id: number,
-    data: UpdateEmployee
-  ): Observable<Employee> {
+  updateEmployee(id: number, data: EmployeeRequest): Observable<Employee> {
     return this.http.put<Employee>(`${this.apiUrl}/${id}`, data);
   }
 

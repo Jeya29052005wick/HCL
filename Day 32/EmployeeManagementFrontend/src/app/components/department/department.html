@@ -1,0 +1,152 @@
+
+<div class="department-page">
+
+  <header class="page-header">
+    <div>
+      <h1>Department Management</h1>
+      <p>Manage your organization's departments</p>
+    </div>
+  </header>
+
+  <div class="navigation">
+    <button
+      [class.active]="currentView === 'add'"
+      (click)="openAdd()">
+      + Add Department
+    </button>
+
+    <button
+      [class.active]="currentView === 'view'"
+      (click)="openView()">
+      View Departments
+    </button>
+  </div>
+
+  @if (errorMessage) {
+    <div class="message error">{{ errorMessage }}</div>
+  }
+
+  @if (successMessage) {
+    <div class="message success">{{ successMessage }}</div>
+  }
+
+  @if (currentView === 'add') {
+
+    <div class="form-card">
+
+      <h2>
+        {{ editingId !== null ? 'Edit Department' : 'Add Department' }}
+      </h2>
+
+      <form (ngSubmit)="saveDepartment()">
+
+        <div class="form-group">
+          <label>Department Name</label>
+          <input
+            type="text"
+            name="name"
+            [(ngModel)]="department.name"
+            placeholder="Enter department name"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <textarea
+            name="description"
+            [(ngModel)]="department.description"
+            placeholder="Enter department description"
+            rows="4">
+          </textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="save-btn">
+            {{ editingId !== null ? 'Update Department' : 'Save Department' }}
+          </button>
+
+          <button
+            type="button"
+            class="cancel-btn"
+            (click)="openView()">
+            Cancel
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+
+  }
+
+  @if (currentView === 'view') {
+
+    <div class="table-card">
+
+      <div class="table-header">
+        <div>
+          <h2>All Departments</h2>
+          <p>{{ departments.length }} departments found</p>
+        </div>
+
+        <button class="add-btn" (click)="openAdd()">
+          + Add Department
+        </button>
+      </div>
+
+      @if (departments.length > 0) {
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Department Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              @for (item of departments; track item.id) {
+                <tr>
+                  <td>{{ item.id }}</td>
+                  <td class="department-name">{{ item.name }}</td>
+                  <td>{{ item.description || '-' }}</td>
+
+                  <td class="actions">
+                    <button
+                      class="edit-btn"
+                      (click)="editDepartment(item)">
+                      Edit
+                    </button>
+
+                    <button
+                      class="delete-btn"
+                      (click)="deleteDepartment(item.id)">
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+
+      } @else {
+
+        <div class="empty-state">
+          <h3>No Departments Found</h3>
+          <p>Add your first department to get started.</p>
+          <button class="add-btn" (click)="openAdd()">
+            Add Department
+          </button>
+        </div>
+
+      }
+
+    </div>
+
+  }
+
+</div>

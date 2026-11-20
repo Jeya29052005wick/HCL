@@ -1,10 +1,12 @@
 ﻿
 using EmployeeManagement.DTOs.Department;
 using EmployeeManagement.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagement.Controllers;
 
+[Authorize(Roles = "Manager")]
 [ApiController]
 [Route("api/[controller]")]
 public class DepartmentController : ControllerBase

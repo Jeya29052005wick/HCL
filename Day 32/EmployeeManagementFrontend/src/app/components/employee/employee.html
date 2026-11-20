@@ -1,0 +1,208 @@
+
+<div class="employee-page">
+
+  <header class="page-header">
+    <h1>Employee Management</h1>
+    <p>Manage your organization's employees</p>
+  </header>
+
+  <div class="navigation">
+    <button
+      [class.active]="currentView === 'add'"
+      (click)="openAdd()">
+      + Add Employee
+    </button>
+
+    <button
+      [class.active]="currentView === 'view'"
+      (click)="openView()">
+      View Employees
+    </button>
+  </div>
+
+  @if (errorMessage) {
+    <div class="message error">{{ errorMessage }}</div>
+  }
+
+  @if (successMessage) {
+    <div class="message success">{{ successMessage }}</div>
+  }
+
+  @if (currentView === 'add') {
+
+    <div class="form-card">
+
+      <h2>
+        {{ editingId !== null ? 'Edit Employee' : 'Add Employee' }}
+      </h2>
+
+      <form (ngSubmit)="saveEmployee()">
+
+        <div class="form-group">
+          <label>Employee Name</label>
+          <input
+            type="text"
+            name="name"
+            [(ngModel)]="employee.name"
+            placeholder="Enter employee name"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="employee.email"
+            placeholder="Enter email address"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label>Phone</label>
+          <input
+            type="text"
+            name="phone"
+            [(ngModel)]="employee.phone"
+            placeholder="Enter phone number"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label>Address</label>
+          <textarea
+            name="address"
+            [(ngModel)]="employee.address"
+            placeholder="Enter address"
+            rows="3">
+          </textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Department</label>
+          <select
+            name="departmentId"
+            [(ngModel)]="employee.departmentId"
+            required>
+
+            <option [ngValue]="0" disabled>
+              Select Department
+            </option>
+
+            @for (dept of departments; track dept.id) {
+              <option [ngValue]="dept.id">
+                {{ dept.name }}
+              </option>
+            }
+
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Joining Date</label>
+          <input
+            type="date"
+            name="joiningDate"
+            [(ngModel)]="employee.joiningDate"
+            required>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="save-btn">
+            {{ editingId !== null ? 'Update Employee' : 'Add Employee' }}
+          </button>
+
+          <button
+            type="button"
+            class="cancel-btn"
+            (click)="openView()">
+            Cancel
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+
+  }
+
+  @if (currentView === 'view') {
+
+    <div class="table-card">
+
+      <div class="table-header">
+        <div>
+          <h2>All Employees</h2>
+          <p>{{ employees.length }} employees found</p>
+        </div>
+
+        <button class="add-btn" (click)="openAdd()">
+          + Add Employee
+        </button>
+      </div>
+
+      @if (employees.length > 0) {
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Department</th>
+                <th>Joining Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              @for (item of employees; track item.id) {
+                <tr>
+                  <td>{{ item.id }}</td>
+                  <td class="employee-name">{{ item.name }}</td>
+                  <td>{{ item.email }}</td>
+                  <td>{{ item.phone }}</td>
+                  <td>{{ item.address || '-' }}</td>
+                  <td>{{ item.departmentName }}</td>
+                  <td>{{ item.joiningDate | date:'dd-MM-yyyy' }}</td>
+
+                  <td class="actions">
+                    <button
+                      class="edit-btn"
+                      (click)="editEmployee(item)">
+                      Edit
+                    </button>
+
+                    <button
+                      class="delete-btn"
+                      (click)="deleteEmployee(item.id)">
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+
+      } @else {
+
+        <div class="empty-state">
+          <h3>No Employees Found</h3>
+          <p>Add your first employee to get started.</p>
+
+          <button class="add-btn" (click)="openAdd()">
+            Add Employee
+          </button>
+        </div>
+
+      }
+
+    </div>
+
+  }
+
+</div>
