@@ -28,6 +28,12 @@ export const routes: Routes = [
           import('./features/admin/students/student-list/student-list').then((m) => m.StudentList),
       },
       {
+  path: 'cancellation-requests',
+  loadComponent: () =>
+    import('./features/admin/cancellation-requests/cancellation-requests')
+      .then((m) => m.CancellationRequests),
+},
+      {
         path: 'courses',
         loadComponent: () =>
           import('./features/admin/courses/course-list/course-list').then(
