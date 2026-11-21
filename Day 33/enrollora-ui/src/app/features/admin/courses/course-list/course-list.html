@@ -7,8 +7,17 @@
       <p>Manage courses, fees, capacity and availability.</p>
     </div>
 
-    <button class="btn-add"><span>+</span> Add New Course</button>
+    <button class="btn-add" (click)="openAddModal()">
+      <span>+</span> Add New Course
+    </button>
   </div>
+
+  @if (addCourseSuccess()) {
+    <div class="course-success-message">
+      <span>✓</span>
+      {{ addCourseSuccess() }}
+    </div>
+  }
 
   <!-- Summary Cards -->
   <div class="summary-grid">
@@ -32,7 +41,9 @@
       <div class="summary-icon">🪑</div>
       <div>
         <span>Available Seats</span>
-        <h2>{{ courses().reduce((total, course) => total + course.availableSeats, 0) }}</h2>
+        <h2>
+          {{ courses().reduce((total, course) => total + course.availableSeats, 0) }}
+        </h2>
       </div>
     </div>
 
@@ -40,7 +51,9 @@
       <div class="summary-icon">✓</div>
       <div>
         <span>Active Courses</span>
-        <h2>{{ courses().filter((course) => course.isActive).length }}</h2>
+        <h2>
+          {{ courses().filter((course) => course.isActive).length }}
+        </h2>
       </div>
     </div>
   </div>
@@ -53,7 +66,7 @@
         <p>View and manage your available courses.</p>
       </div>
 
-      <span class="record-count"> {{ totalRecords() }} courses </span>
+      <span class="record-count">{{ totalRecords() }} courses</span>
     </div>
 
     <!-- Loading -->
@@ -105,6 +118,7 @@
                     <div class="course-avatar">
                       {{ course.courseName.charAt(0).toUpperCase() }}
                     </div>
+
                     <div>
                       <strong>{{ course.courseName }}</strong>
                       <small>Course ID: #{{ course.courseId }}</small>
@@ -113,23 +127,28 @@
                 </td>
 
                 <td>
-                  <span class="duration">
-                    {{ course.duration }}
-                  </span>
+                  <span class="duration">{{ course.duration }}</span>
                 </td>
 
                 <td>
-                  <strong class="fees"> ₹{{ course.fees | number: '1.0-2' }} </strong>
+                  <strong class="fees">
+                    ₹{{ course.fees | number: '1.0-2' }}
+                  </strong>
                 </td>
 
                 <td>
                   <div class="enrollment-info">
-                    <strong> {{ course.enrolledCount }} / {{ course.capacity }} </strong>
+                    <strong>
+                      {{ course.enrolledCount }} / {{ course.capacity }}
+                    </strong>
+
                     <div class="progress-track">
                       <div
                         class="progress-fill"
                         [style.width.%]="
-                          course.capacity > 0 ? (course.enrolledCount / course.capacity) * 100 : 0
+                          course.capacity > 0
+                            ? (course.enrolledCount / course.capacity) * 100
+                            : 0
                         "
                       ></div>
                     </div>
@@ -139,7 +158,9 @@
                 <td>
                   <span
                     class="seats-badge"
-                    [class.low-seats]="course.availableSeats <= 5 && course.availableSeats > 0"
+                    [class.low-seats]="
+                      course.availableSeats <= 5 && course.availableSeats > 0
+                    "
                     [class.no-seats]="course.availableSeats === 0"
                   >
                     {{ course.availableSeats }}
@@ -172,13 +193,21 @@
         </span>
 
         <div class="pagination-actions">
-          <button class="page-btn" (click)="previousPage()" [disabled]="pageNumber() === 1">
+          <button
+            class="page-btn"
+            (click)="previousPage()"
+            [disabled]="pageNumber() === 1"
+          >
             ← Previous
           </button>
 
           <span class="current-page">{{ pageNumber() }}</span>
 
-          <button class="page-btn" (click)="nextPage()" [disabled]="pageNumber() >= totalPages()">
+          <button
+            class="page-btn"
+            (click)="nextPage()"
+            [disabled]="pageNumber() >= totalPages()"
+          >
             Next →
           </button>
         </div>
@@ -186,3 +215,171 @@
     }
   </div>
 </div>
+
+<!-- ADD COURSE MODAL -->
+@if (showAddModal()) {
+  <div
+    class="course-modal-overlay"
+    (click)="closeAddModal()"
+  >
+    <div
+      class="course-modal"
+      (click)="$event.stopPropagation()"
+    >
+      <!-- Modal Header -->
+      <div class="course-modal-header">
+        <div class="course-modal-heading">
+          <span class="course-modal-eyebrow">COURSE MANAGEMENT</span>
+          <h2>Add New Course</h2>
+          <p>Enter the details to create a new course.</p>
+        </div>
+
+        <button
+          type="button"
+          class="course-modal-close"
+          (click)="closeAddModal()"
+          [disabled]="isSubmitting()"
+          aria-label="Close modal"
+        >
+          ×
+        </button>
+      </div>
+
+      <!-- Form -->
+      <form
+        class="course-modal-form"
+        (submit)="$event.preventDefault(); submitCourse()"
+      >
+        <!-- Course Name -->
+        <div class="course-form-group">
+          <label for="courseName">
+            Course Name <span>*</span>
+          </label>
+
+          <input
+            id="courseName"
+            type="text"
+            maxlength="150"
+            placeholder="Enter course name"
+            [value]="courseName()"
+            (input)="courseName.set($any($event.target).value)"
+            required
+          />
+        </div>
+
+        <!-- Duration -->
+        <div class="course-form-group">
+          <label for="courseDuration">
+            Duration <span>*</span>
+          </label>
+
+          <input
+            id="courseDuration"
+            type="text"
+            maxlength="100"
+            placeholder="Example: 6 Months"
+            [value]="duration()"
+            (input)="duration.set($any($event.target).value)"
+            required
+          />
+        </div>
+
+        <!-- Fees and Capacity -->
+        <div class="course-form-row">
+          <div class="course-form-group">
+            <label for="courseFees">
+              Fees (₹) <span>*</span>
+            </label>
+
+            <input
+              id="courseFees"
+              type="number"
+              min="0"
+              step="0.01"
+              placeholder="Enter fees"
+              [value]="fees() ?? ''"
+              (input)="
+                fees.set(
+                  $any($event.target).value === ''
+                    ? null
+                    : +$any($event.target).value
+                )
+              "
+              required
+            />
+          </div>
+
+          <div class="course-form-group">
+            <label for="courseCapacity">
+              Capacity <span>*</span>
+            </label>
+
+            <input
+              id="courseCapacity"
+              type="number"
+              min="1"
+              step="1"
+              placeholder="Enter capacity"
+              [value]="capacity() ?? ''"
+              (input)="
+                capacity.set(
+                  $any($event.target).value === ''
+                    ? null
+                    : +$any($event.target).value
+                )
+              "
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Status -->
+        <div class="course-form-group">
+          <label for="courseStatus">Course Status</label>
+
+          <select
+            id="courseStatus"
+            [value]="isActive()"
+            (change)="isActive.set($any($event.target).value === 'true')"
+          >
+            <option value="true">Active</option>
+            <option value="false">Inactive</option>
+          </select>
+        </div>
+
+        <!-- Error -->
+        @if (addCourseError()) {
+          <div class="course-modal-error">
+            <span>!</span>
+            {{ addCourseError() }}
+          </div>
+        }
+
+        <!-- Actions -->
+        <div class="course-modal-actions">
+          <button
+            type="button"
+            class="course-modal-cancel"
+            (click)="closeAddModal()"
+            [disabled]="isSubmitting()"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            class="course-modal-submit"
+            [disabled]="isSubmitting()"
+          >
+            @if (isSubmitting()) {
+              <span class="course-submit-spinner"></span>
+              Creating...
+            } @else {
+              Create Course
+            }
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+}

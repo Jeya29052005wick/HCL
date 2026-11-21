@@ -83,14 +83,14 @@
               </td>
 
               <td>
-                <span
-                  class="status-badge"
-                  [class.active]="enrollment.status === 1"
-                  [class.inactive]="enrollment.status !== 1"
-                >
-                  {{ enrollment.status === 1 ? 'Active' : 'Cancelled' }}
-                </span>
-              </td>
+  <span
+    class="status-badge"
+    [class.active]="enrollment.status === 0"
+    [class.inactive]="enrollment.status === 1"
+  >
+    {{ enrollment.status === 0 ? 'Active' : enrollment.status === 1 ? 'Cancelled' : 'Unknown' }}
+  </span>
+</td>
             </tr>
 
           } @empty {

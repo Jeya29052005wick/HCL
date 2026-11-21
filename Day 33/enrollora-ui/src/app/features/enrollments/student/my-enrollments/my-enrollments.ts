@@ -52,8 +52,15 @@ export class MyEnrollments implements OnInit {
   }
 
   statusLabel(status: number): string {
-    return status === 1 ? 'Active' : 'Cancelled';
+  switch (status) {
+    case 0:
+      return 'Active';
+    case 1:
+      return 'Cancelled';
+    default:
+      return 'Unknown';
   }
+}
 
   previousPage(): void {
     if (this.pageNumber() > 1) {
