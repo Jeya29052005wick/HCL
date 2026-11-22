@@ -17,12 +17,25 @@ export class StudentService {
 
   private apiUrl = `${environment.apiUrl}/students`;
 
+  // Get logged-in student's profile
+  getMe(): Observable<StudentResponse> {
+    return this.http.get<StudentResponse>(`${this.apiUrl}/me`);
+  }
+
+  // Update logged-in student's profile
+  updateMe(request: UpdateStudentRequest): Observable<StudentResponse> {
+    return this.http.put<StudentResponse>(`${this.apiUrl}/me`, request);
+  }
+
+  // Get students with pagination and filters
   getStudents(
     pageNumber = 1,
     pageSize = 10,
     filters?: StudentFilter,
   ): Observable<PagedResult<StudentResponse>> {
-    let params = new HttpParams().set('pageNumber', pageNumber).set('pageSize', pageSize);
+    let params = new HttpParams()
+      .set('pageNumber', pageNumber)
+      .set('pageSize', pageSize);
 
     if (filters) {
       if (filters.search) params = params.set('search', filters.search);
@@ -30,7 +43,8 @@ export class StudentService {
       if (filters.status !== null && filters.status !== undefined)
         params = params.set('status', filters.status);
 
-      if (filters.department) params = params.set('department', filters.department);
+      if (filters.department)
+        params = params.set('department', filters.department);
 
       if (filters.minAge !== null && filters.minAge !== undefined)
         params = params.set('minAge', filters.minAge);
@@ -48,22 +62,33 @@ export class StudentService {
     return this.http.get<PagedResult<StudentResponse>>(this.apiUrl, { params });
   }
 
+  // Get student by ID
   getStudentById(id: number): Observable<StudentResponse> {
     return this.http.get<StudentResponse>(`${this.apiUrl}/${id}`);
   }
 
+  // Approve student
   approveStudent(id: number): Observable<ApiMessage> {
     return this.http.put<ApiMessage>(`${this.apiUrl}/${id}/approve`, {});
   }
 
+  // Reject student
   rejectStudent(id: number): Observable<ApiMessage> {
     return this.http.put<ApiMessage>(`${this.apiUrl}/${id}/reject`, {});
   }
 
-  updateStudent(id: number, studentData: UpdateStudentRequest): Observable<StudentResponse> {
-    return this.http.put<StudentResponse>(`${this.apiUrl}/${id}`, studentData);
+  // Update student by ID
+  updateStudent(
+    id: number,
+    studentData: UpdateStudentRequest,
+  ): Observable<StudentResponse> {
+    return this.http.put<StudentResponse>(
+      `${this.apiUrl}/${id}`,
+      studentData,
+    );
   }
 
+  // Delete student
   deleteStudent(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
