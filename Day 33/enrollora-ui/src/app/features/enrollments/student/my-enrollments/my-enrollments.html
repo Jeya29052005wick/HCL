@@ -7,6 +7,12 @@
     </div>
   </div>
 
+  @if (cancellationSuccess()) {
+    <div class="cancellation-success">
+      {{ cancellationSuccess() }}
+    </div>
+  }
+
   @if (isLoading()) {
     <div class="state-card">
       <div class="loader"></div>
@@ -34,8 +40,10 @@
               <th>Course</th>
               <th>Enrollment Date</th>
               <th>Status</th>
+              <th>Actions</th>
             </tr>
           </thead>
+
           <tbody>
             @for (enrollment of enrollments(); track enrollment.enrollmentId) {
               <tr>
@@ -44,21 +52,37 @@
                     <div class="course-avatar">
                       {{ enrollment.courseName.charAt(0).toUpperCase() }}
                     </div>
+
                     <div>
                       <strong>{{ enrollment.courseName }}</strong>
                       <small>Enrollment #{{ enrollment.enrollmentId }}</small>
                     </div>
                   </div>
                 </td>
+
                 <td>{{ enrollment.enrolledAt | date: 'dd MMM yyyy' }}</td>
+
                 <td>
                   <span
-  class="status-badge"
-  [class.active]="enrollment.status === 0"
-  [class.cancelled]="enrollment.status === 1"
->
-  {{ statusLabel(enrollment.status) }}
-</span>
+                    class="status-badge"
+                    [class.active]="enrollment.status === 0"
+                    [class.cancelled]="enrollment.status === 1"
+                  >
+                    {{ statusLabel(enrollment.status) }}
+                  </span>
+                </td>
+
+                <td>
+                  @if (enrollment.status === 0) {
+                    <button
+                      class="cancellation-btn"
+                      (click)="openCancellationForm(enrollment)"
+                    >
+                      Request Cancellation
+                    </button>
+                  } @else {
+                    <span class="no-action">—</span>
+                  }
                 </td>
               </tr>
             }
@@ -70,9 +94,16 @@
         <span>
           Showing {{ enrollments().length }} of {{ totalRecords() }} enrollments
         </span>
+
         <div>
-          <button (click)="previousPage()" [disabled]="pageNumber() === 1">Previous</button>
-          <span class="current-page">{{ pageNumber() }} / {{ totalPages() }}</span>
+          <button (click)="previousPage()" [disabled]="pageNumber() === 1">
+            Previous
+          </button>
+
+          <span class="current-page">
+            {{ pageNumber() }} / {{ totalPages() }}
+          </span>
+
           <button
             (click)="nextPage()"
             [disabled]="pageNumber() >= totalPages()"
@@ -83,4 +114,90 @@
       </div>
     </div>
   }
-</div>
+
+
+<!-- Cancellation Request Modal -->
+@if (selectedEnrollment()) {
+  <div class="modal-overlay" (click)="closeCancellationForm()">
+    <div class="cancellation-modal" (click)="$event.stopPropagation()">
+
+      <div class="modal-header">
+        <div>
+          <span class="eyebrow">CANCELLATION</span>
+          <h2>Request Cancellation</h2>
+        </div>
+
+        <button
+          class="close-btn"
+          type="button"
+          (click)="closeCancellationForm()"
+          [disabled]="isSubmittingCancellation()"
+        >
+          &times;
+        </button>
+      </div>
+
+      <div class="modal-course">
+        <strong>{{ selectedEnrollment()?.courseName }}</strong>
+        <small>
+          Enrollment #{{ selectedEnrollment()?.enrollmentId }}
+        </small>
+      </div>
+
+      <p class="modal-description">
+        Please provide a reason for requesting cancellation of this enrollment.
+        Your request will be reviewed by the administrator.
+      </p>
+
+      @if (cancellationError()) {
+        <div class="cancellation-error">
+          {{ cancellationError() }}
+        </div>
+      }
+
+      <form (ngSubmit)="submitCancellationRequest()">
+        <div class="reason-field">
+          <label for="cancellationReason">Cancellation Reason</label>
+
+          <textarea
+            id="cancellationReason"
+            rows="5"
+            maxlength="1000"
+            placeholder="Explain why you want to cancel this enrollment..."
+            [ngModel]="cancellationReason()"
+            (ngModelChange)="cancellationReason.set($event)"
+            name="cancellationReason"
+            required
+          ></textarea>
+
+          <div class="character-count">
+            {{ cancellationReason().length }} / 1000
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button
+            type="button"
+            class="modal-cancel-btn"
+            (click)="closeCancellationForm()"
+            [disabled]="isSubmittingCancellation()"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            class="modal-submit-btn"
+            [disabled]="isSubmittingCancellation() || !cancellationReason().trim()"
+          >
+            {{
+              isSubmittingCancellation()
+                ? 'Submitting...'
+                : 'Submit Request'
+            }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+}

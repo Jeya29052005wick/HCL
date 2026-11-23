@@ -210,7 +210,7 @@
                     title="View details"
                     (click)="viewRequest(request)"
                   >
-                    <i class="bi bi-eye"></i>
+                    <span class="action-icon">👁</span>
                   </button>
 
                   @if (request.status === 0) {
@@ -220,7 +220,7 @@
                       title="Approve"
                       (click)="openReview(request, 'approve')"
                     >
-                      <i class="bi bi-check-lg"></i>
+                      <span class="action-icon">✓</span>
                     </button>
 
                     <button
@@ -228,7 +228,7 @@
                       title="Reject"
                       (click)="openReview(request, 'reject')"
                     >
-                      <i class="bi bi-x-lg"></i>
+                      <span class="action-icon">×</span>
                     </button>
 
                   }

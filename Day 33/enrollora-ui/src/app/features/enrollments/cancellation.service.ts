@@ -61,4 +61,14 @@ export class CancellationService {
       request,
     );
   }
+
+  requestCancellation(
+  enrollmentId: number,
+  reason: string,
+): Observable<unknown> {
+  return this.http.post(
+    `${environment.apiUrl}/enrollments/${enrollmentId}/cancellation-request`,
+    { reason },
+  );
+}
 }
