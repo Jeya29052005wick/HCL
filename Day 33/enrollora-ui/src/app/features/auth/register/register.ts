@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { AuthService } from '../../../core/auth/auth.service';
 import { RegisterStudentRequest } from '../../../core/auth/auth.models';
 import { Router, RouterLink } from '@angular/router';

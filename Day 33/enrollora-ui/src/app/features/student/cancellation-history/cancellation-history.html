@@ -1,0 +1,104 @@
+<div class="history-page">
+  <header class="page-header">
+    <span class="eyebrow">MY REQUESTS</span>
+    <h1>Cancellation History</h1>
+    <p>Track the status of your course cancellation requests.</p>
+  </header>
+
+  @if (isLoading()) {
+    <div class="state-card">
+      <div class="loader"></div>
+      <p>Loading cancellation history...</p>
+    </div>
+  } @else if (error()) {
+    <div class="state-card error-state">
+      <h3>Unable to load history</h3>
+      <p>{{ error() }}</p>
+      <button class="retry-btn" (click)="loadHistory()">Retry</button>
+    </div>
+  } @else if (requests().length === 0) {
+    <div class="state-card empty-state">
+      <div class="empty-icon">↻</div>
+      <h3>No cancellation requests yet</h3>
+      <p>Your cancellation requests will appear here after you submit one.</p>
+    </div>
+  } @else {
+    <div class="history-list">
+      @for (request of requests(); track request.cancellationRequestId) {
+        <article class="history-card">
+          <div class="card-top">
+            <div class="course-info">
+              <div class="course-icon">
+                {{ request.courseName.charAt(0).toUpperCase() }}
+              </div>
+
+              <div>
+                <h3>{{ request.courseName }}</h3>
+                <small>Enrollment #{{ request.enrollmentId }}</small>
+              </div>
+            </div>
+
+            <span
+              class="status-badge"
+              [class.pending]="request.status === 0"
+              [class.approved]="request.status === 1"
+              [class.rejected]="request.status === 2"
+            >
+              {{ statusLabel(request.status) }}
+            </span>
+          </div>
+
+          <div class="details-grid">
+            <div class="detail">
+              <span class="detail-label">Reason</span>
+              <p>{{ request.reason }}</p>
+            </div>
+
+            <div class="detail">
+              <span class="detail-label">Requested On</span>
+              <p>{{ formatDate(request.requestedAt) }}</p>
+            </div>
+
+            <div class="detail">
+              <span class="detail-label">Reviewed On</span>
+              <p>{{ formatDate(request.reviewedAt) }}</p>
+            </div>
+          </div>
+
+          @if (request.adminRemarks) {
+            <div class="remarks">
+              <span class="detail-label">Admin Remarks</span>
+              <p>{{ request.adminRemarks }}</p>
+            </div>
+          }
+        </article>
+      }
+    </div>
+
+    <div class="pagination">
+      <span>
+        Showing {{ requests().length }} of {{ totalRecords() }} requests
+      </span>
+
+      <div class="pagination-controls">
+        <button
+          (click)="previousPage()"
+          [disabled]="pageNumber() <= 1"
+        >
+          Previous
+        </button>
+
+        <span class="page-number">
+          {{ pageNumber() }} / {{ totalPages() }}
+        </span>
+
+        <button
+          (click)="nextPage()"
+          [disabled]="pageNumber() >= totalPages()"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  }
+</div>

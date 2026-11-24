@@ -71,4 +71,18 @@ export class CancellationService {
     { reason },
   );
 }
+
+getMyCancellationRequests(
+  pageNumber = 1,
+  pageSize = 10,
+): Observable<PagedResult<CancellationResponse>> {
+  const params = new HttpParams()
+    .set('pageNumber', pageNumber)
+    .set('pageSize', pageSize);
+
+  return this.http.get<PagedResult<CancellationResponse>>(
+    `${this.apiUrl}/my`,
+    { params },
+  );
+}
 }

@@ -62,6 +62,14 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./features/student/dashboard/dashboard').then((m) => m.Dashboard),
       },
+
+      {
+  path: 'cancellation-history',
+  loadComponent: () =>
+    import('./features/student/cancellation-history/cancellation-history')
+      .then((m) => m.CancellationHistory),
+},
+
       {
         path: 'courses',
         loadComponent: () =>
