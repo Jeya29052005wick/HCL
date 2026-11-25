@@ -74,7 +74,7 @@ export class CancellationService {
 
 getMyCancellationRequests(
   pageNumber = 1,
-  pageSize = 10,
+  pageSize = 100,
 ): Observable<PagedResult<CancellationResponse>> {
   const params = new HttpParams()
     .set('pageNumber', pageNumber)

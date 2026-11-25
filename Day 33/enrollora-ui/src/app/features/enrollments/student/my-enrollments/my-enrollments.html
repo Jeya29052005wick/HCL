@@ -72,18 +72,26 @@
                   </span>
                 </td>
 
-                <td>
-                  @if (enrollment.status === 0) {
-                    <button
-                      class="cancellation-btn"
-                      (click)="openCancellationForm(enrollment)"
-                    >
-                      Request Cancellation
-                    </button>
-                  } @else {
-                    <span class="no-action">—</span>
-                  }
-                </td>
+                
+<td>
+  @if (enrollment.status === 0) {
+    @if (canRequestCancellation(enrollment.enrollmentId)) {
+      <button
+        class="cancellation-btn"
+        (click)="openCancellationForm(enrollment)"
+      >
+        Request Cancellation
+      </button>
+    } @else {
+      <span class="no-action">
+        {{ cancellationActionLabel(enrollment.enrollmentId) }}
+      </span>
+    }
+  } @else {
+    <span class="no-action">Cancelled</span>
+  }
+</td>
+
               </tr>
             }
           </tbody>
